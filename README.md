@@ -85,6 +85,23 @@ npm run check:project
 
 An empty config fails with `NOT SET`. This is expected before you build the app. Tests must have a real command. Checks that do not apply need a reason, for example `{"skip": "This project has no compile step."}`. A failed command, timeout, or missing check makes the project check fail. Press `Ctrl+C` to cancel the current check and stop later checks. The runner executes the configured commands through your OS shell. Only use commands from a project you trust.
 
+## Run the StokBijak MVP
+
+The first product slice is a Streamlit dashboard for CSV validation, sales
+summary, a transparent seven-day baseline forecast, and restock suggestions.
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/streamlit run app/streamlit_app.py
+```
+
+Open the local URL shown by Streamlit. The dashboard starts with the sample
+files in `data/sample/`. Choose **Upload CSV** to test the real input flow.
+The required columns are documented in `STOKBIJAK_PRODUCT_PLAN.md` and shown in
+the sidebar. The recommendation uses `stok_minimum` as a temporary safety-stock
+proxy and does not place an order automatically.
+
 Reports go to `.starter/last-check.json`, which Git ignores. Reports store results, not terminal logs. A past report does not prove that code changed since then still works.
 
 ## Edit the kit

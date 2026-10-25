@@ -1,0 +1,1 @@
+"""StokBijak application package."""

@@ -1,14 +1,34 @@
 {
   "version": 1,
   "project": {
-    "name": "",
-    "goal": "",
-    "stack": []
+    "name": "StokBijak",
+    "goal": "Membantu pemilik kedai minuman kecil memprediksi penjualan 7 hari dan menentukan rekomendasi restock.",
+    "stack": [
+      "Python",
+      "Pandas atau Polars",
+      "scikit-learn",
+      "FastAPI",
+      "PostgreSQL",
+      "Streamlit",
+      "Docker"
+    ]
   },
   "checks": {
-    "test": null,
-    "lint": null,
-    "typecheck": null,
-    "build": null
+    "test": {
+      "command": ".venv/bin/python -m unittest discover -s tests -p 'test_*.py'",
+      "cwd": ".",
+      "timeoutMs": 120000
+    },
+    "lint": {
+      "command": ".venv/bin/ruff check app tests",
+      "cwd": ".",
+      "timeoutMs": 120000
+    },
+    "typecheck": {
+      "skip": "Type checker belum dipakai pada vertical slice Python pertama."
+    },
+    "build": {
+      "skip": "Streamlit dijalankan sebagai aplikasi Python dan belum memiliki langkah build terpisah."
+    }
   }
 }
